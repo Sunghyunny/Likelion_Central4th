@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <style>
+    .btn{
+        text-align: right;
+    }
+    </style>
+{% block content %}
+    <center>
+     <table class="table table-hover" style="width:1000px;">
+         <br>
+         <br>
+         <thead>
+            <th>#</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>시간</th>
+         </thead>
+            {% for blog in blogs %}
+        <tr>
+        <td>{{ blog.id }}</td>
+        <td><a class="btn"
+            href="{% url 'detail' blog.id %}" style="text-align: right;">{{ blog.title }}</a></td>
+        <td>
+            {{ blog.author }}
+        </td>
+        <td>
+            {{ blog.pub_date }}
+            </td>
+        </tr>
+
+
+
+
+    {% endfor %}
+    </table>
+    </center>
+
+
+{% endblock %}
